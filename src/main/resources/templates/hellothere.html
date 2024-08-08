@@ -3,9 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet"
+           th:href="@{/css/styles.css}"
+    />
 </head>
 <body>
-    <p th:text="'The curennt time is' +  ${date}" />
+    <p th:text="'The curennt time is' +  ${date}" class="someStyle" />
     <p>Hi</p>
 </body>
 </html>
+

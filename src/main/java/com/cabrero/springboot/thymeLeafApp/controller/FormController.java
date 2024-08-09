@@ -1,9 +1,13 @@
 package com.cabrero.springboot.thymeLeafApp.controller;
 
+import com.cabrero.springboot.thymeLeafApp.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.catalina.util.ToStringUtil;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,6 +35,18 @@ public class FormController {
     public String shoutOutLoudthree(@RequestParam("username") String theName, Model model) {
         model.addAttribute("message", theName);
         return "nameresult";
+    }
+
+    @GetMapping("/studentForm")
+    public String studentForm(Model model) {
+        model.addAttribute("student", new Student());
+        return "studentform";
+    }
+
+    @PostMapping("/processStudentForm")
+    public String processForm(@ModelAttribute("student") Student theStudent) {
+        System.out.println("the student " + theStudent.getFirstName() + " " + theStudent.getLastName());
+        return "studentconfirmation";
     }
 
 }

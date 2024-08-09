@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet"
-           th:href="@{/css/styles.css}"
+          th:href="@{/css/styles.css}"
     />
 </head>
 <body>
-    <p th:text="'The curent time is' +  ${date}" class="someStyle" />
-    <p>Hi</p>
+Student Name: <span th:text="${param.username}"/>
 </body>
 </html>
 

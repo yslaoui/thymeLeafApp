@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          th:href="@{/css/styles.css}"
+    />
+</head>
+<body>
+
+<form th:action="@{/processform}" method="GET">
+    <input type="text" name="username"  />
+    <button type="text" name="Submit"> Submit </button>
+</form>
+</body>
+</html>
+

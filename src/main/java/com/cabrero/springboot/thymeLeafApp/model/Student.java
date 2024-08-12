@@ -1,10 +1,21 @@
 package com.cabrero.springboot.thymeLeafApp.model;
 
+import java.util.List;
+
 public class Student {
     private String firstName;
     private String lastName;
     private String country;
     private String codingLanguage;
+    private List<String> preferredOS;
+
+    public List<String> getPreferredOS() {
+        return preferredOS;
+    }
+
+    public void setPreferredOS(List<String> preferredOS) {
+        this.preferredOS = preferredOS;
+    }
 
     public String getCodingLanguage() {
         return codingLanguage;

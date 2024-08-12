@@ -22,6 +22,9 @@ public class FormController {
     @Value("${codingLanguages}")
     private List<String> codingLanguages;
 
+    @Value("${preferredOSs}")
+    private List<String> preferredOSs;
+
     @GetMapping("/showform")
     public String showTheForm() {
         return "nameform";
@@ -51,6 +54,7 @@ public class FormController {
         model.addAttribute("student", new Student());
         model.addAttribute("countries", countries);
         model.addAttribute("codingLanguages", codingLanguages);
+        model.addAttribute("preferredOSs", preferredOSs);
         return "studentform";
     }
 

@@ -9,6 +9,13 @@
     and lastName <span th:text=" ${student.LastName}" />
     and country <span  th:text="${student.country}" />
     and preferred coding language <span th:text="${student.codingLanguage}"/>
+    and preferred OS are
+    <ul>
+        <li th:each="tempOs: ${student.preferredOS}"
+            th:text="${tempOs}"
+        />
+    </ul>
+
     successfully added</p>
 </body>
 </html>

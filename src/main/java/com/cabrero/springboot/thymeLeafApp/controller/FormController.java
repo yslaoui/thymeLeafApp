@@ -2,11 +2,13 @@ package com.cabrero.springboot.thymeLeafApp.controller;
 
 import com.cabrero.springboot.thymeLeafApp.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.apache.catalina.util.ToStringUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,9 +61,20 @@ public class FormController {
     }
 
     @PostMapping("/processStudentForm")
-    public String processForm(@ModelAttribute("student") Student theStudent) {
-        System.out.println("the student " + theStudent.getFirstName() + " " + theStudent.getLastName());
-        return "studentconfirmation";
+    public String processForm(
+            @Valid  @ModelAttribute("student") Student theStudent,
+            BindingResult theBindingResult, Model model
+    ) {
+        // Always re-populate the model with the necessary attributes
+        model.addAttribute("countries", countries);
+        model.addAttribute("codingLanguages", codingLanguages);
+        model.addAttribute("preferredOSs", preferredOSs);
+        if (theBindingResult.hasErrors()) {
+            return "studentform";
+        }
+        else {
+            return "studentconfirmation";
+        }
     }
 
 }

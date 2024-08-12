@@ -1,10 +1,19 @@
 package com.cabrero.springboot.thymeLeafApp.model;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class Student {
     private String firstName;
+
+
+    @NotNull(message = "message is required")
+    @Size(min = 1, message = "is required")
     private String lastName;
+
+
     private String country;
     private String codingLanguage;
     private List<String> preferredOS;

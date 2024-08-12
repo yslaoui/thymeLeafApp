@@ -4,6 +4,15 @@ public class Student {
     private String firstName;
     private String lastName;
     private String country;
+    private String codingLanguage;
+
+    public String getCodingLanguage() {
+        return codingLanguage;
+    }
+
+    public void setCodingLanguage(String codingLanguage) {
+        this.codingLanguage = codingLanguage;
+    }
 
     public Student() {
     }

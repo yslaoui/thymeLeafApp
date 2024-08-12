@@ -17,6 +17,17 @@
         <span> Last Name: </span>
         <input type="text" th:field="*{lastName}"/>
     </p>
+    <p>
+        <span> Country: </span>
+        <select th:field="*{country}">
+            <option th:each="tempcountry : ${countries}"
+                    th:value="${tempcountry}"
+                    th:text="${tempcountry}"
+            >
+        </select>
+
+    </p>
+
     <button type="submit" value="Submit"> Submit </button>
 </form>
 </body>

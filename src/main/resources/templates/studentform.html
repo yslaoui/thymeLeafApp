@@ -27,10 +27,12 @@
         </select>
     </p>
     <p>
-        <input type="radio" th:field="*{codingLanguage}" th:value="Go"> Go </input>
-        <input type="radio" th:field="*{codingLanguage}" th:value="Python"> Python </input>
-        <input type="radio" th:field="*{codingLanguage}" th:value="Rust"> Rust </input>
-        <input type="radio" th:field="*{codingLanguage}" th:value="Angular"> Angular </input>
+        <input type="radio"
+               th:field="*{codingLanguage}"
+               th:each="tempLanguage: ${codingLanguages}"
+               th:value="${tempLanguage}"
+               th:text="${tempLanguage}"
+                />
     </p>
 
     <button type="submit" value="Submit"> Submit </button>

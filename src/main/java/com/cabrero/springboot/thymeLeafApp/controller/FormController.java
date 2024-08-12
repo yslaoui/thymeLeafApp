@@ -19,6 +19,9 @@ public class FormController {
     @Value("${countries}")
     private List<String> countries;
 
+    @Value("${codingLanguages}")
+    private List<String> codingLanguages;
+
     @GetMapping("/showform")
     public String showTheForm() {
         return "nameform";
@@ -33,6 +36,7 @@ public class FormController {
     public String shoutOutLoud(HttpServletRequest request, Model model) {
         String name = request.getParameter("username").toUpperCase();
         model.addAttribute("message", name);
+
         return "nameresult";
     }
 
@@ -46,6 +50,7 @@ public class FormController {
     public String studentForm(Model model) {
         model.addAttribute("student", new Student());
         model.addAttribute("countries", countries);
+        model.addAttribute("codingLanguages", codingLanguages);
         return "studentform";
     }
 

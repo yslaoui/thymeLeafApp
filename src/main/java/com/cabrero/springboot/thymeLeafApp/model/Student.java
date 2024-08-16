@@ -1,9 +1,6 @@
 package com.cabrero.springboot.thymeLeafApp.model;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.util.List;
 
@@ -23,6 +20,20 @@ public class Student {
     @Min(value = 0, message = "Number of free passes must be positive")
     @Max(value = 10, message = "No more than 10 free passes")
     private int freePasses;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits")
+    private String postalCode;
+
+    public @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+
+
 
 
 
@@ -78,6 +89,10 @@ public class Student {
     public void setFreePasses(@Min(value = 0, message = "Number of free passes must be positive") @Max(value = 10, message = "No more than 10 free passes") int freePasses) {
         this.freePasses = freePasses;
     }
+
+
+
+
 
 
 }

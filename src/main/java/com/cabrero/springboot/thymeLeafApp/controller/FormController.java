@@ -45,7 +45,6 @@ public class FormController {
     public String shoutOutLoud(HttpServletRequest request, Model model) {
         String name = request.getParameter("username").toUpperCase();
         model.addAttribute("message", name);
-
         return "nameresult";
     }
 

@@ -1,5 +1,7 @@
 package com.cabrero.springboot.thymeLeafApp.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -13,10 +15,18 @@ public class Student {
     @Size(min = 1, message = "is required")
     private String lastName;
 
-
     private String country;
     private String codingLanguage;
     private List<String> preferredOS;
+
+
+    @Min(value = 0, message = "Number of free passes must be positive")
+    @Max(value = 10, message = "No more than 10 free passes")
+    private int freePasses;
+
+
+
+
 
     public List<String> getPreferredOS() {
         return preferredOS;
@@ -60,6 +70,16 @@ public class Student {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public int getFreePasses() {
+        return freePasses;
+    }
+
+    public void setFreePasses(@Min(value = 0, message = "Number of free passes must be positive") @Max(value = 10, message = "No more than 10 free passes") int freePasses) {
+        this.freePasses = freePasses;
+    }
+
+
 }
 
 

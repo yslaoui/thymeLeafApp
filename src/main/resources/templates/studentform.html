@@ -51,6 +51,14 @@
                th:text="${tempOS}"
         />
     </p>
+    <p>
+        <span> First Passes: </span>
+        <input type="text" th:field="*{freePasses}"/>
+        <span th:if="${#fields.hasErrors('freePasses')}"
+              th:errors="*{freePasses}"
+              class="error"
+        > </span>
+    </p>
     <button type="submit" value="Submit"> Submit </button>
 </form>
 </body>

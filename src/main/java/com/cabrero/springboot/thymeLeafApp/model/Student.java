@@ -6,38 +6,21 @@ import java.util.List;
 
 public class Student {
     private String firstName;
-
-
-    @NotNull(message = "message is required")
-    @Size(min = 1, message = "is required")
-    private String lastName;
-
     private String country;
     private String codingLanguage;
     private List<String> preferredOS;
 
+    @NotNull(message = " is required")
+    @Size(min = 1, message = "is required")
+    private String lastName;
 
+    @NotNull(message = " is required")
     @Min(value = 0, message = "Number of free passes must be positive")
     @Max(value = 10, message = "No more than 10 free passes")
-    private int freePasses;
+    private Integer freePasses;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits")
     private String postalCode;
-
-    public @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-
-
-
-
-
-
 
     public List<String> getPreferredOS() {
         return preferredOS;
@@ -82,13 +65,22 @@ public class Student {
         this.country = country;
     }
 
-    public int getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(@Min(value = 0, message = "Number of free passes must be positive") @Max(value = 10, message = "No more than 10 free passes") int freePasses) {
+    public void setFreePasses(@Min(value = 0, message = "Number of free passes must be positive") @Max(value = 10, message = "No more than 10 free passes") Integer freePasses) {
         this.freePasses = freePasses;
     }
+
+    public @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 characters/ digits") String postalCode) {
+        this.postalCode = postalCode;
+    }
+
 
 
 

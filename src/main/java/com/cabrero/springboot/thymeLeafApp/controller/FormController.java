@@ -17,6 +17,12 @@ import java.util.List;
 
 @Controller
 public class FormController {
+
+    @InitBinder
+    public void trimStrings(WebDataBinder binder) {
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+    }
+
     @Value("${countries}")
     private List<String> countries;
 
@@ -26,10 +32,7 @@ public class FormController {
     @Value("${preferredOSs}")
     private List<String> preferredOSs;
 
-    @InitBinder
-    public void trimStrings(WebDataBinder binder) {
-        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
-    }
+
 
     @GetMapping("/showform")
     public String showTheForm() {
@@ -72,6 +75,8 @@ public class FormController {
         model.addAttribute("countries", countries);
         model.addAttribute("codingLanguages", codingLanguages);
         model.addAttribute("preferredOSs", preferredOSs);
+        System.out.println("\n\n\n\n\n");
+        System.out.println("The binding result is " + theBindingResult);
         if (theBindingResult.hasErrors()) {
             return "studentform";
         }
@@ -80,6 +85,6 @@ public class FormController {
         }
     }
 
-
-
 }
+
+

@@ -1,5 +1,6 @@
 package com.cabrero.springboot.thymeLeafApp.model;
 
+import com.cabrero.springboot.thymeLeafApp.validation.CourseCode;
 import jakarta.validation.constraints.*;
 
 import java.util.List;
@@ -9,6 +10,10 @@ public class Student {
     private String country;
     private String codingLanguage;
     private List<String> preferredOS;
+
+    @CourseCode(value = "TOPS", message = "must start with TOPS")
+    private String courseCode;
+
 
     @NotNull(message = " is required")
     @Size(min = 1, message = "is required")
@@ -82,11 +87,13 @@ public class Student {
     }
 
 
+    public String getCourseCode() {
+        return courseCode;
+    }
 
-
-
-
-
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 }
 
 
